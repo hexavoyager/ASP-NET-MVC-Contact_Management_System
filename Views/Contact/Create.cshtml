@@ -1,0 +1,44 @@
+﻿@{ 
+    ViewBag.Title = "Create Contact";
+}
+
+@model CreateContactForm
+
+<div asp-validation-summary="ModelOnly"></div>
+    <div class="p-5">
+        <h2>Créez un nouveau contact.</h2>
+        <br />
+        <br />
+        <form method="post" id="form1">
+            <div>
+                <label asp-for="LastName"></label>
+                <div>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div>
+                <label asp-for="FirstName"></label>
+                <div>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div>
+                <label asp-for="Email"></label>
+                <div>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div>
+                <label asp-for="CategoryId"></label>
+                <div>
+                    <input asp-for="CategoryId" class="form-control" />
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <button type="submit" form="form1" value="Submit" class="btn-lg btn-primary">Create contact</button>
+        </form>
+    </div>

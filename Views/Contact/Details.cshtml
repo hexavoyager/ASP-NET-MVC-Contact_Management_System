@@ -1,0 +1,35 @@
+﻿<div class="p-5">
+    <div class="shadow-sm p-3 mb-5 bg-light rounded">
+    <h2>Details pour 
+        <span class="font-weight-lighter">
+            @Model.FirstName @Model.LastName
+        </span>
+        </h2>
+    </div>
+ 
+    <div>
+        <label>First Name : </label>
+        <p class="font-weight-bold">@Model.FirstName</p>
+    </div>
+    <div>
+        <label>Last Name : </label>
+        <p class="font-weight-bold">@Model.LastName</p>
+    </div>
+    <div>
+        <label>Email : </label>
+        <p class="font-weight-bold">@Model.Email</p>
+    </div>
+    <div>
+        <label>ID : </label>
+        <p class="font-weight-bold">@Model.Id</p>
+    </div>
+    <div>
+        <label>Category ID : </label>
+        <span class="badge badge-success">@Model.CategoryId</span>
+    </div>
+    <br />
+    <br />
+    <a class="btn btn-secondary btn-block" asp-controller="Contact" asp-action="Index">Retour</a>
+</div>
+
+

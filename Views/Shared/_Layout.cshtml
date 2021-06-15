@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body>
+    <div class="container-lg shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="row p-1">
+            <div class="col-9">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Contact/Index">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-3 d-md-flex d-block flex-row mx-md-auto mx-0 aligns-items-center justify-content-center">
+                <nav class="nav bg-dark text-white rounded">
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <a class="navbar-brand bold" href="~/Contact/Create">
+                        <p class="btn-dark">Create new contact</p>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+<div class="aligns-items-center p-5">
+    <nav class="navbar fixed-bottom navbar-dark bg-secondary">
+        <a class="navbar-brand">
+            <h5>Version 1.0 2021</h5>
+        </a>
+    </nav>
+</div>
+</body>
+</html>
