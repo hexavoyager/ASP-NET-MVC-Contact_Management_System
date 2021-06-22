@@ -1,18 +1,12 @@
-﻿@model MVC_Demo_2.Models.Data.Contact
-@{
-    ViewData["Title"] = "Details";
-}
-
-<div class="p-5">
+﻿<div class="p-5">
     <div class="shadow-sm p-3 mb-5 bg-light rounded">
-        <h2>
-            Details pour
-            <span class="font-weight-lighter">
-                @Model.FirstName @Model.LastName
-            </span>
+    <h2>Details pour 
+        <span class="font-weight-lighter">
+            @Model.FirstName @Model.LastName
+        </span>
         </h2>
     </div>
-
+ 
     <div>
         <label>First Name : </label>
         <p class="font-weight-bold">@Model.FirstName</p>
@@ -33,12 +27,9 @@
         <label>Category ID : </label>
         <span class="badge badge-success">@Model.CategoryId</span>
     </div>
-    <div>
-        <a asp-action="Edit" asp-controller="Contact" asp-route-id="@Model.Id">Extra</a>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        <a asp-action="Index">Back to List</a>
-    </div>
     <br />
     <br />
     <a class="btn btn-secondary btn-block" asp-controller="Contact" asp-action="Index">Retour</a>
 </div>
+
+

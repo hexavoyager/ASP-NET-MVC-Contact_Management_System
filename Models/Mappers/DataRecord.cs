@@ -20,5 +20,14 @@ namespace MVC_Demo_2.Models.Mappers
                 CategoryId = (int)dataRecord["CategoryId"]
             };
         }
+
+        public static Category ToCategory(this IDataRecord dataRecord)
+        {
+            return new Category()
+            {
+                Id = (int)dataRecord["Id"],
+                Name = (string)dataRecord["Name"]
+            };
+        }
     }
 }

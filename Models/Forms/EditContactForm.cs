@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace MVC_Demo_2.Models.Forms
 {
-    public class CreateContactForm
+    public class EditContactForm
     {
+
+        [HiddenInput]
+        public int Id { get; set; }
 
         [Required]
         [StringLength(75)]

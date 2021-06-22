@@ -1,0 +1,28 @@
+﻿<div class="p-5">
+    <h2>Voici la liste des contacts:</h2>
+    <br />
+    <br />
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Contact item in Model)
+            {
+                <tr>
+                    <td>@item.LastName</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <button type="button" class="btn btn-light text-light"><a href="~/Contact/Details/@item.Id">Details</a></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

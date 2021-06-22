@@ -14,7 +14,6 @@ namespace MVC_Demo_2.Models.Services
         private readonly Connection _connection;
         public ContactService(Connection connection)
         {
-            Console.WriteLine("CREATION DU CONTACT SERVICE");
             _connection = connection;
         }
         public IEnumerable<Contact> Get()
@@ -28,23 +27,34 @@ namespace MVC_Demo_2.Models.Services
             command.AddParameter("Id", id);
             return _connection.ExecuteReader(command, dr => new Contact() { Id = (int)dr["id"], LastName = (string)dr["LastName"], FirstName = (string)dr["FirstName"], Email = (string)dr["Email"], CategoryId = (int)dr["CategoryId"] }).SingleOrDefault();
         }
-        public void Insert(Contact newContact)
+        public void Insert(Contact c)
         {
             Command command = new Command("INSERT INTO [Contact] ([LastName], [FirstName], [Email], [CategoryId]) VALUES (@LastName, @FirstName, @Email, @CategoryId);", false);
 
-            command.AddParameter("LastName", newContact.LastName);
-            command.AddParameter("FirstName", newContact.FirstName);
-            command.AddParameter("Email", newContact.Email);
-            command.AddParameter("CategoryId", newContact.CategoryId);
+            command.AddParameter("LastName", c.LastName);
+            command.AddParameter("FirstName", c.FirstName);
+            command.AddParameter("Email", c.Email);
+            command.AddParameter("CategoryId", c.CategoryId);
 
+            _connection.ExecuteNonQuery(command);
+        }
+
+        public void Update(Contact c)
+        {
+            Command command = new Command("UPDATE [Contact] SET [LastName] = @LastName, [FirstName] = @FirstName, [Email] = @Email, [CategoryId] = @CategoryId WHERE Id = @Id", false);
+            command.AddParameter("Id", c.Id);
+            command.AddParameter("LastName", c.LastName);
+            command.AddParameter("FirstName", c.FirstName);
+            command.AddParameter("Email", c.Email);
+            command.AddParameter("CategoryId", c.CategoryId);
+            _connection.ExecuteNonQuery(command);
+        }
+
+        public void Delete(int id)
+        {
+            Command command = new Command("DELETE FROM [Contact] WHERE Id = @Id", false);
+            command.AddParameter("Id", id);
             _connection.ExecuteNonQuery(command);
         }
     }
 }
-
-//1.créer la méthode Create au niveau du ContactController
-//2. Créer la vue créant un formulaire pour la création des contacts
-//3. Créer la méthode Create en Post recevant les différente valeurs formulaire
-//4. Ajouter la méthode insert au niveau de votre service (BFSP_AddContact)
-//5.Insérer après vérification votre contact en DB
-//6. Rediriger vers l'action index (return RedirecttoAction("Index");)

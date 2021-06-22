@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MVC_Demo_2.Models.Forms
 {
-    public class CreateContactForm
+    public class RegisterContactForm
     {
-
         [Required]
         [StringLength(75)]
         public string LastName { get; set; }
@@ -24,9 +23,12 @@ namespace MVC_Demo_2.Models.Forms
         public string Email { get; set; }
 
         [Required]
-        public int CategoryId { get; set; }
+        [DataType(DataType.Password)]
+        public string Passwd { get; set; }
 
-        public IList<SelectListItem> Categories { get; set; }
-
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare(nameof(Passwd))]
+        public string ConfirmPasswd { get; set; }
     }
 }

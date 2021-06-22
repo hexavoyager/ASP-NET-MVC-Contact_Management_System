@@ -28,7 +28,13 @@
                         <span class="sr-only">Loading...</span>
                     </div>
                     <a class="navbar-brand bold" href="~/Contact/Create">
-                        <p class="btn-dark">Create new contact</p>
+                        <p class="btn-dark">New contact</p>
+                    </a>
+                    <a class="navbar-brand bold" href="~/Auth/Register">
+                        <p class="btn-dark">Register user</p>
+                    </a>
+                    <a class="navbar-brand bold" href="~/Auth">
+                        <p class="btn-dark">LOGIN</p>
                     </a>
                 </nav>
             </div>
@@ -39,8 +45,10 @@
     <nav class="navbar fixed-bottom navbar-dark bg-secondary">
         <a class="navbar-brand">
             <h5>Version 1.0 2021</h5>
+            <h4>Welcome @ViewBag.fname @ViewBag.lname!</h4>
         </a>
     </nav>
 </div>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

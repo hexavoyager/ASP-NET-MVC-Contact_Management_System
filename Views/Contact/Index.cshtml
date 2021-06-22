@@ -1,28 +1,50 @@
-﻿<div class="p-5">
-    <h2>Voici la liste des contacts:</h2>
-    <br />
-    <br />
+﻿@model IEnumerable<MVC_Demo_2.Models.Data.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="p-5">
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Email</th>
-                <th>Id</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryId)
+                </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (Contact item in Model)
-            {
-                <tr>
-                    <td>@item.LastName</td>
-                    <td>@item.FirstName</td>
-                    <td>@item.Email</td>
-                    <td>
-                        <button type="button" class="btn btn-light text-light"><a href="~/Contact/Details/@item.Id">Details</a></button>
-                    </td>
-                </tr>
-            }
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+}
         </tbody>
     </table>
 </div>
